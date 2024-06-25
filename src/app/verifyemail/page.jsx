@@ -1,12 +1,12 @@
 'use client'
-import React, { useEffect, useState } from 'react'
+import React, { UseEffect, UseState } from 'react'
 import axios from 'axios'
 import Link from 'next/link'
 
 
 function verifyemail() {
-    const [token , settoken] = useState("")
-    const [verified , setverified] = useState(false)
+    const [token , settoken] = UseState("")
+    const [verified , setverified] = UseState(false)
     
 
     const verify= async ()=>{
@@ -22,7 +22,7 @@ function verifyemail() {
       }
     }
 
-    useEffect(()=>{
+    UseEffect(()=>{
      const token =  window.location.search.split("=")[1]
      settoken(token)
      

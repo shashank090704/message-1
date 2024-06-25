@@ -1,9 +1,9 @@
 'use client';
-import React, { useState, useEffect } from 'react';
+import React, { UseState, UseEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import toast from "react-hot-toast";
-import { useRouter } from 'next/navigation';
+import { UseRouter } from 'next/navigation';
 import SimpleDateTime from 'react-simple-timestamp-to-date';
 import Image from 'next/image';
 
@@ -13,15 +13,15 @@ function ProfilePage() {
  const input = document.querySelector("#input")
  const but = document.querySelector("#submit")
 
-    const router  = useRouter()
-    const [maildata , setmaildata] = useState([])
-    const [bio , setbio] = useState(false)
-    const [data, setData] = useState("");
-    const [biodata , setbiodata] = useState("")
-    const[loginout , setloginout] = useState(false)
-    const [file , setfile] = useState()
-    const [lod , setlod] = useState("false")
-    const [ dp , setdp] = useState("")
+    const router  = UseRouter()
+    const [maildata , setmaildata] = UseState([])
+    const [bio , setbio] = UseState(false)
+    const [data, setData] = UseState("");
+    const [biodata , setbiodata] = UseState("")
+    const[loginout , setloginout] = UseState(false)
+    const [file , setfile] = UseState()
+    const [lod , setlod] = UseState("false")
+    const [ dp , setdp] = UseState("")
    
     
     const getDetails = async () => {
@@ -96,7 +96,7 @@ function ProfilePage() {
         
       }
 
-    useEffect(() => {
+    UseEffect(() => {
        
         getDetails();
        
@@ -104,7 +104,7 @@ function ProfilePage() {
    
 
 
-    useEffect(() => {
+    UseEffect(() => {
         if (maildata.length > 0) {
           console.log(maildata); // Log the mail data only after it's fetched
            // You can also perform other actions here, like displaying the mails
@@ -142,12 +142,12 @@ function ProfilePage() {
             <button className='text-lg font-medium transition duration-300   hover:shadow-[0_20px_50px_rgba(8,_110,_190,_0.9)] p-2 rounded-full pl-2 pr-2 m-2' onClick={getmail}>Get mails</button>
            
     { maildata.length >0?  <div className='p-3 m-3   flex flex-wrap  flex-row gap-2 '>
-        {maildata.map((m) => (
-          <div   className='text-white    transition duration-300   hover:shadow-[0_20px_50px_rgba(8,_110,_190,_0.9)] bg-black p-2 rounded-lg  ' >
-            <div className='bg-gradient-to-r from-violet-500 to-purple-500 bg-clip-text text-transparent p-2 font-bold text-sm'><SimpleDateTime dateFormat="DMY" dateSeparator="/" timeSeparator=":">
+        {maildata.map((m , index) => (
+          <div key={index}  className='text-white    transition duration-300   hover:shadow-[0_20px_50px_rgba(8,_110,_190,_0.9)] bg-black p-2 rounded-lg  ' >
+            <div key={index} className='bg-gradient-to-r from-violet-500 to-purple-500 bg-clip-text text-transparent p-2 font-bold text-sm'><SimpleDateTime dateFormat="DMY" dateSeparator="/" timeSeparator=":">
   {m.date}
 </SimpleDateTime></div>
-            <div className='bg-gradient-to-r from-violet-500 to-purple-500 bg-clip-text text-transparent p-2 font-bold text-xl'>{m.content}</div>
+            <div key={index} className='bg-gradient-to-r from-violet-500 to-purple-500 bg-clip-text text-transparent p-2 font-bold text-xl'>{m.content}</div>
           </div>
         ))}
     
