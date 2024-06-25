@@ -7,7 +7,7 @@ import Link from 'next/link'
 function verifyemail() {
     const [token , settoken] = useState("")
     const [verified , setverified] = useState(false)
-    const [ error , seterror ] = useState(false)
+    
 
     const verify= async ()=>{
       try {
