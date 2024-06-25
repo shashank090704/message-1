@@ -1,7 +1,7 @@
 import {connect} from "@/lib/dbconnect"
 import { NextRequest,NextResponse } from "next/server"
 import Users from "@/models/user"
-import { GetDataFromToken } from "@/helper/GetDataFromToken"
+import { GetDataFromToken } from "@/helper/getDataFromToken"
 
 connect()
  export async function POST(request){

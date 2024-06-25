@@ -4,7 +4,7 @@ import Users from "@/models/user"
 
 import fs from 'fs/promises'
 import { v4 as uuidv4 } from 'uuid';
-import { GetDataFromToken } from "@/helper/GetDataFromToken"
+import { GetDataFromToken } from "@/helper/getDataFromToken"
 
 
 connect()

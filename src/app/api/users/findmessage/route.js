@@ -2,7 +2,7 @@ import { NextRequest , NextResponse } from "next/server";
 import Users from "@/models/user";
 import Message from "@/models/message";
 import { connect } from "@/lib/dbconnect";
-import { GetDataFromToken } from "@/helper/GetDataFromToken";
+import { GetDataFromToken } from "@/helper/getDataFromToken";
 
 
 
