@@ -3,7 +3,7 @@ import React from 'react'
 import { useState } from 'react'
 import axios from 'axios'
 
-function page({params}) {
+function Page({params}) {
   const [message , setmessage] = useState({
     data : "",
     user : params.id
@@ -30,4 +30,4 @@ function page({params}) {
   )
 }
 
-export default page
+export default Page

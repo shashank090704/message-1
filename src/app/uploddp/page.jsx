@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation'
 
 
 
-function page() {
+function Page2() {
    const  router = useRouter()
     const [file , setfile] = useState()
     const Submit = async(e)=>{
@@ -38,4 +38,4 @@ function page() {
   )
 }
 
-export default page
+export default Page2

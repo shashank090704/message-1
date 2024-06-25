@@ -3,7 +3,7 @@ import nodemailer from 'nodemailer';
 import Users from '@/models/user';
 import bcrypt from 'bcryptjs';
 
-export const sendEmail = async function({ email, emailType, userId }) {
+export const SendEmail = async function({ email, emailType, userId }) {
   try {
     const hashedToken = await bcrypt.hash(userId.toString(), 10);
     const tokenExpiryTime = Date.now() + 3600000; // 1 hour

@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import axios from 'axios'
 import Link from 'next/link'
 // import style from '@/Stylesheet/login.module.css'
-function loginpage() {
+function Loginpage() {
   const router = useRouter()
  const [user , setuser] = React.useState({
     username : "",
@@ -60,4 +60,4 @@ function loginpage() {
   )
 }
 
-export default loginpage
+export default Loginpage

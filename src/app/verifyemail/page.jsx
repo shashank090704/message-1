@@ -5,7 +5,7 @@ import axios from 'axios'
 import Link from 'next/link'
 
 
-function verifyemail() {
+function Verifyemail() {
     const [token , settoken] = useState("")
     const [verified , setverified] = useState(false)
     
@@ -44,4 +44,4 @@ function verifyemail() {
   )
 }
 
-export default verifyemail
+export default Verifyemail
