@@ -2,14 +2,15 @@ import { NextRequest , NextResponse } from "next/server";
 import Users from "@/models/user";
 import Message from "@/models/message";
 import { connect } from "@/lib/dbconnect";
-import { getDataFromToken } from "@/helper/getDataFromToken";
+import { GetDataFromToken } from "@/helper/getDataFromToken";
+
 
 
 connect()
 
 export async function POST(request){
     try {
-        const userid = getDataFromToken(request)
+        const userid = GetDataFromToken(request)
         const user = await Users.findById(userid)
         
         const message = await user.populate("message")

@@ -1,7 +1,8 @@
 import {connect} from "@/lib/dbconnect"
 import { NextRequest,NextResponse } from "next/server"
 import Users from "@/models/user"
-import { getDataFromToken } from '@/helper/getDataFromToken';
+import { GetDataFromToken } from "@/helper/getDataFromToken"
+
 connect()
  export async function POST(request){
     try {
@@ -9,7 +10,7 @@ connect()
           const { biodata} = reqbody
         console.log(biodata)
         console.log(reqbody)
-        const userid = await getDataFromToken(request)
+        const userid = await GetDataFromToken(request)
           //  console.log(biodata)
           //  console.log(userid)
         const user = await Users.findById(userid)

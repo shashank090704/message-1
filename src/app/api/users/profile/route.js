@@ -2,12 +2,13 @@ import { connect } from '@/lib/dbconnect';
 import Users from '@/models/user';
 import { NextRequest, NextResponse } from 'next/server';
 import jwt from 'jsonwebtoken';
-import { getDataFromToken } from '@/helper/getDataFromToken';
+import { GetDataFromToken } from '@/helper/getDataFromToken';
+
 connect();
 
 export async function GET(request) {
   try {
-    const data = await getDataFromToken(request);
+    const data = await GetDataFromToken(request);
     // Return user data in response
     const user = await Users.findOne({_id: data}).select("-password");
     console.log(user)

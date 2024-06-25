@@ -96,7 +96,6 @@ import { connect } from '@/lib/dbconnect';
 import Users from '@/models/user';
 import { NextRequest, NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import { sendEmail } from '@/helper/mailer';
 import message from '@/models/message';
 import jwt from 'jsonwebtoken';
 

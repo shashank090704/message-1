@@ -1,9 +1,10 @@
 import {connect} from "@/lib/dbconnect"
 import { NextRequest,NextResponse } from "next/server"
 import Users from "@/models/user"
-import { getDataFromToken } from '@/helper/getDataFromToken';
+
 import fs from 'fs/promises'
 import { v4 as uuidv4 } from 'uuid';
+import { GetDataFromToken } from "@/helper/getDataFromToken"
 
 
 connect()
@@ -27,7 +28,7 @@ connect()
         const path = `./public/${filename}`
         console.log(path)
         await fs.writeFile(path,buffer)
-        const userid = await getDataFromToken(request)
+        const userid = await GetDataFromToken(request)
         const user = await Users.findById(userid) 
         user.dp = filename
         

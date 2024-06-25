@@ -2,7 +2,8 @@ import {connect} from '@/lib/dbconnect'
 import Users from '@/models/user'
 import { NextRequest, NextResponse } from 'next/server'
 import bycrypt from "bcryptjs"
-import {sendEmail}  from "@/helper/mailer"
+import { SendEmail } from '@/helper/mailer'
+
 
 connect()
 
@@ -30,7 +31,7 @@ try {
 
       console.log(saveduser)
     
-      sendEmail({email : saveduser.email, emailType :"VERIFY", userId : saveduser._id})
+      SendEmail({email : saveduser.email, emailType :"VERIFY", userId : saveduser._id})
      return NextResponse.json({
         messsage : 'message send sussecfully'
      })
