@@ -3,7 +3,6 @@ import React, { useState } from 'react'
 import axios from 'axios'
 
 function page({params}) {
-  const [mail , setmail] = useState([])
   const [message , setmessage] = useState({
     data : "",
     user : params.id

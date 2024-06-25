@@ -97,9 +97,9 @@ function ProfilePage() {
       }
 
     useEffect(() => {
-        if(!bio){
+       
         getDetails();
-        }
+       
     }, [bio ,lod]);
    
 
