@@ -1,12 +1,13 @@
 'use client'
-import React from 'react'
-import { UseState } from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
-import { UseRouter } from 'next/navigation'
+import { useRouter } from 'next/navigation'
+
+
 
 function page() {
-   const  router = UseRouter()
-    const [file , setfile] = UseState()
+   const  router = useRouter()
+    const [file , setfile] = useState()
     const Submit = async(e)=>{
         e.preventDefault()
         console.log(file)

@@ -1,9 +1,11 @@
 'use client';
-import React, { UseState, UseEffect } from 'react';
+import React from 'react';
+import { useState } from 'react';
+import { useEffect } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 import toast from "react-hot-toast";
-import { UseRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import SimpleDateTime from 'react-simple-timestamp-to-date';
 import Image from 'next/image';
 
@@ -13,15 +15,15 @@ function ProfilePage() {
  const input = document.querySelector("#input")
  const but = document.querySelector("#submit")
 
-    const router  = UseRouter()
-    const [maildata , setmaildata] = UseState([])
-    const [bio , setbio] = UseState(false)
-    const [data, setData] = UseState("");
-    const [biodata , setbiodata] = UseState("")
-    const[loginout , setloginout] = UseState(false)
-    const [file , setfile] = UseState()
-    const [lod , setlod] = UseState("false")
-    const [ dp , setdp] = UseState("")
+    const router  = useRouter()
+    const [maildata , setmaildata] = useState([])
+    const [bio , setbio] = useState(false)
+    const [data, setData] = useState("");
+    const [biodata , setbiodata] = useState("")
+    const[loginout , setloginout] = useState(false)
+    const [file , setfile] = useState()
+    const [lod , setlod] = useState("false")
+    const [ dp , setdp] = useState("")
    
     
     const getDetails = async () => {
@@ -96,7 +98,7 @@ function ProfilePage() {
         
       }
 
-    UseEffect(() => {
+    useEffect(() => {
        
         getDetails();
        
@@ -104,7 +106,7 @@ function ProfilePage() {
    
 
 
-    UseEffect(() => {
+    useEffect(() => {
         if (maildata.length > 0) {
           console.log(maildata); // Log the mail data only after it's fetched
            // You can also perform other actions here, like displaying the mails

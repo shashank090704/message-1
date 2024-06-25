@@ -1,9 +1,10 @@
 'use client'
-import React, { UseState } from 'react'
+import React from 'react'
+import { useState } from 'react'
 import axios from 'axios'
 
 function page({params}) {
-  const [message , setmessage] = UseState({
+  const [message , setmessage] = useState({
     data : "",
     user : params.id
   })

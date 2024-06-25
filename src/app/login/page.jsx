@@ -1,18 +1,20 @@
 'use client'
-import React, { UseEffect, UseState } from 'react'
-import { UseRouter } from 'next/navigation'
+import React from 'react'
+import { useState } from 'react'
+import { useEffect } from 'react'
+import { useRouter } from 'next/navigation'
 import axios from 'axios'
 import Link from 'next/link'
 // import style from '@/Stylesheet/login.module.css'
 function loginpage() {
-  const router = UseRouter()
- const [user , setuser] = UseState({
+  const router = useRouter()
+ const [user , setuser] = React.useState({
     username : "",
     password : ""
   }
   )
-  const [ buttondisable , setbuttondosable] = UseState(true)
-  const [loding , setloding] = UseState(false)
+  const [ buttondisable , setbuttondosable] = React.useState(true)
+  const [loding , setloding] = React.useState(false)
   const login = async ()=>{
     try {
       if(!buttondisable){
@@ -27,7 +29,7 @@ function loginpage() {
     }
   
   }
-  UseEffect(()=>{
+  useEffect(()=>{
     if(user.username.length > 0 && user.password.length > 0){
       setbuttondosable(false);
     }else{
