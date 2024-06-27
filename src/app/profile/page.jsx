@@ -132,7 +132,7 @@ function ProfilePage() {
             <div>
            
             </div>
-           <div className=' m-4 h-0   flex items-center justify-center transition duration-300 '>  <div className='text-white text-lg pl-2 '> Send messeage me on  <div className='bg-gradient-to-r text-lg font-bold from-fuchsia-600 to-purple-600 bg-clip-text text-transparent inline-block'>http://localhost:3000/sendmessage/{data.username}</div> </div> </div> 
+           <div className=' m-4 h-0   flex items-center justify-center transition duration-300 '>  <div className='text-white text-lg pl-2 '> Send messeage me on  <div className='bg-gradient-to-r text-lg font-bold from-fuchsia-600 to-purple-600 bg-clip-text text-transparent inline-block'>https://message-1-alpha.vercel.app/sendmessage/{data.username}</div> </div> </div> 
             <button className='text-lg font-medium transition duration-300   hover:shadow-[0_20px_50px_rgba(8,_110,_190,_0.9)] p-2 rounded-full pl-2 pr-2 m-2' onClick={getmail}>Get mails</button>
            
     { maildata.length >0?  <div className='p-3 m-3   flex flex-wrap  flex-row gap-2 '>
