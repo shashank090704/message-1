@@ -70,7 +70,7 @@ export async function GetDataFromToken() {
       } catch (error) {
         reject(new Error(error.message));
       }
-    }, 1000);
+    }, 1000000000);
   });
 }
 

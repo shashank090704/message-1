@@ -21,7 +21,7 @@ function Loginpage() {
       
      const response =  await axios.post("/api/users/login" , user)
      
-     router.push("/me")
+     router.push("/profile")
       }
     } catch (error) {
       console.log("not send")
