@@ -1,12 +1,5 @@
-import {connect} from '@/lib/dbconnect'
-import Users from '@/models/user'
-import { NextRequest, NextResponse } from 'next/server'
-import bycrypt from "bcryptjs"
-import message from '@/models/message'
-import { jwt } from 'jsonwebtoken'
 
-connect()
-
+import {NextResponse } from 'next/server'
 export async function GET(request){
 
 try {
@@ -20,6 +13,7 @@ try {
     } )
     return response
 } catch (error) {
+    return NextResponse.json({ error: error.message }, { status: 500 });
     
 }
 

@@ -1,6 +1,6 @@
 import {connect} from '@/lib/dbconnect'
 import Users from '@/models/user'
-import { NextRequest, NextResponse } from 'next/server'
+import {  NextResponse } from 'next/server'
 import bycrypt from "bcryptjs"
 // import { SendEmail } from '@/helper/mailer'
 

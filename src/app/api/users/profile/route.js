@@ -1,7 +1,6 @@
 import { connect } from '@/lib/dbconnect';
 import Users from '@/models/user';
-import { NextRequest, NextResponse } from 'next/server';
-import jwt from 'jsonwebtoken';
+import {  NextResponse } from 'next/server';
 import { GetDataFromToken } from '@/helper/getDataFromToken';
 
 connect();

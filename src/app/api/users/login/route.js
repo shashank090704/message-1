@@ -94,9 +94,8 @@
 // }
 import { connect } from '@/lib/dbconnect';
 import Users from '@/models/user';
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import bcrypt from 'bcryptjs';
-import message from '@/models/message';
 import jwt from 'jsonwebtoken';
 
 connect();
@@ -105,7 +104,6 @@ export async function POST(request) {
     try {
         const reqbody = await request.json();
         console.log(reqbody);
-
         const { username, password } = reqbody;
         console.log(username);
         console.log(password);
@@ -126,11 +124,10 @@ export async function POST(request) {
           username: user.username,
           id: user._id
       }
-      const token = jwt.sign(tokenData, process.env.TOOKEN_SECREAT, { expiresIn: '1d' });
+      const token =  await jwt.sign(tokenData, process.env.TOOKEN_SECREAT, { expiresIn: '1d' });
 
       const response = NextResponse.json({ message: "Login successfull" });
 
-    
 
       response.cookies.set("token", token, { httpOnly: true });
       return response;
