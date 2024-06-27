@@ -58,7 +58,7 @@
 import jwt from 'jsonwebtoken';
 import { cookies } from 'next/headers';
 
-export async function getCookieData() {
+export async function GetCookieData() {
   const cookieData = cookies().getAll();
   const token = cookieData.find(cookie => cookie.name === "token")?.value || '';
 

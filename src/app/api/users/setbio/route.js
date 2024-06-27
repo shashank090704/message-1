@@ -10,7 +10,7 @@ connect()
           const { biodata} = reqbody
         console.log(biodata)
         console.log(reqbody)
-        const userid = await GetDataFromToken(request)
+        const userid = await GetDataFromToken()
           //  console.log(biodata)
           //  console.log(userid)
         const user = await Users.findById(userid)
