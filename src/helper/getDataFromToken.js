@@ -11,18 +11,18 @@
 //     }
 
 // }
-// import jwt from "jsonwebtoken";
+import jwt from "jsonwebtoken";
 
-// export async function GetDataFromToken(request){
-//     try {
-//         const token = await request.cookies.get("token").value || '';
-//         const decodedToken = await jwt.verify(token, process.env.TOOKEN_SECREAT);
-//         return decodedToken.id;
-//     } catch (error) {
-//         throw new Error(error.message);
-//     }
+export async function GetDataFromToken(request){
+    try {
+        const token = await request.cookies.get("token").value || '';
+        const decodedToken = await jwt.verify(token, process.env.TOOKEN_SECREAT);
+        return decodedToken.id;
+    } catch (error) {
+        throw new Error(error.message);
+    }
 
-// }
+}
 
 // import jwt from "jsonwebtoken";
 // import { cookies } from 'next/headers';
@@ -55,22 +55,22 @@
 //   )
 // }\
 
-import jwt from 'jsonwebtoken';
-import { cookies } from 'next/headers';
+// import jwt from 'jsonwebtoken';
+// import { cookies } from 'next/headers';
 
-export async function GetDataFromToken() {
-  const cookieData = cookies().getAll();
-  const token = cookieData.find(cookie => cookie.name === "token")?.value || '';
+// export async function GetDataFromToken() {
+//   const cookieData = cookies().getAll();
+//   const token = cookieData.find(cookie => cookie.name === "token")?.value || '';
 
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      try {
-        const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
-        resolve(decodedToken.id);
-      } catch (error) {
-        reject(new Error(error.message));
-      }
-    }, 1000000000);
-  });
-}
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       try {
+//         const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
+//         resolve(decodedToken.id);
+//       } catch (error) {
+//         reject(new Error(error.message));
+//       }
+//     }, 1000);
+//   });
+// }
 

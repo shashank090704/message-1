@@ -28,7 +28,7 @@ connect()
         const path = `./public/${filename}`
         console.log(path)
         await fs.writeFile(path,buffer)
-        const userid = await GetDataFromToken()
+        const userid = await GetDataFromToken(request)
         const user = await Users.findById(userid) 
         user.dp = filename
         
