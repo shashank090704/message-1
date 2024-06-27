@@ -153,6 +153,7 @@ function ProfilePage() {
         }}/>
         <button id='submit' type='submit'> bubmit</button>
     </form>
+    <div>{data.dp}</div>
     
         </div>
     );
