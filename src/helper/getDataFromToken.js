@@ -11,27 +11,29 @@
 //     }
 
 // }
-import jwt from "jsonwebtoken";
+// import jwt from "jsonwebtoken";
 
-export async function GetDataFromToken(request){
+// export async function GetDataFromToken(request){
+//     try {
+//         const token = await request.cookies.get("token").value || '';
+//         const decodedToken = await jwt.verify(token, process.env.TOOKEN_SECREAT);
+//         return decodedToken.id;
+//     } catch (error) {
+//         throw new Error(error.message);
+//     }
+
+// }
+
+import jwt from "jsonwebtoken";
+import { cookies } from 'next/headers';
+
+export async function GetDataFromToken() {
     try {
-        const token = await request.cookies.get("token").value || '';
-        const decodedToken = await jwt.verify(token, process.env.TOOKEN_SECREAT);
-        return decodedToken.id;
+        const allCookies = cookies().getAll();
+        const token = allCookies.find(cookie => cookie.name === "token")?.value || '';
+        const decodedToken = jwt.verify(token, process.env.TOKEN_SECRET);
+        return decodedToken.id ;
     } catch (error) {
         throw new Error(error.message);
     }
-
 }
-// import { cookies } from 'next/headers'
-// import jwt from "jsonwebtoken";
-
- 
-// async function GetDataFromToken() {
-//   const cookieData = cookies().getAll()
-//   return new Promise((resolve) =>
-//     setTimeout(() => {
-//         const decodedToken = jwt.verify(cookieData, process.env.TOOKEN_SECREAT);
-//     }, 1000)
-//   )
-// }
