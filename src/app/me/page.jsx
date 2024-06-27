@@ -12,8 +12,8 @@ import SimpleDateTime from 'react-simple-timestamp-to-date';
 
 
 function ProfilePage() {
- const input = document.querySelector("#input")
- const but = document.querySelector("#submit")
+//  const input = document.querySelector("#input")
+//  const but = document.querySelector("#submit")
 
     const router  = useRouter()
     const [maildata , setmaildata] = useState([])
@@ -147,9 +147,9 @@ function ProfilePage() {
     
     </div> : <p></p>}
 
-    <form className='hidden' onSubmit={Submit} action='/api/users/uplodfile' method='post' >
+    <form className='' onSubmit={Submit} action='/api/users/uplodfile' method='post' >
         <input type="file" id='input'  name='file' onChange={ async(e)=>{ await setfile(e.target.files?.[0])
-            but.click()
+            
         }}/>
         <button id='submit' type='submit'> bubmit</button>
     </form>
