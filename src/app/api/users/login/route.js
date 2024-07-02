@@ -103,13 +103,12 @@ connect();
 export async function POST(request) {
     try {
         const reqbody = await request.json();
-        console.log(reqbody);
+    
         const { username, password } = reqbody;
-        console.log(username);
-        console.log(password);
+       
 
         const user = await Users.findOne({ username: username });
-        console.log(user);
+       
         if (!user) {
             return NextResponse.redirect("/login")
         }

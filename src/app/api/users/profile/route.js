@@ -10,8 +10,6 @@ export async function GET(request) {
     const data = await GetDataFromToken(request);
     // Return user data in response
     const user = await Users.findOne({_id: data}).select("-password");
-    console.log(user)
-
     return NextResponse.json({
       message: "User found",
       data: user

@@ -34,7 +34,7 @@ message:[ {
   type :  mongoose.Schema.Types.ObjectId,
   ref : 'message'
 }],
-dp :String,
+dp : String,
 forgotpasswordtoken : String,
 forgorpasswordexpiry : Date,
 verifytoken : String,
