@@ -189,7 +189,7 @@ function ProfilePage() {
     const logout = async () => {
         try {
             setloginout(true);
-            await axios.get('/api/users/logout');
+           const res =  await axios.post('/api/users/logout');
             router.push('/login');
         } catch (error) {
             console.log("error in logging out");
@@ -252,7 +252,7 @@ function ProfilePage() {
             </div>
             <div className='flex flex-col sm:flex-row items-center sm:items-start mt-4 space-y-4 sm:space-y-0 sm:space-x-4 p-4'>
                 <div className='w-24 h-24 sm:w-48 sm:h-48'>
-                    <img src={data.dp} onClick={() => document.getElementById('input').click()} className='w-full h-full rounded-full object-cover cursor-pointer  transition duration-500 ease-in-out hover:shadow-[0px_25px_97px_0px_#4c51bf,0px_-25px_97px_0px_#c53030]' />
+                    <img src={data.dp} alt='   tap to change dp' onClick={() => document.getElementById('input').click()} className='w-full h-full rounded-full object-cover cursor-pointer  transition duration-500 ease-in-out hover:shadow-[0px_25px_97px_0px_#4c51bf,0px_-25px_97px_0px_#c53030]'  />
                 </div>
                 <div className='flex flex-col items-center sm:items-start'>
                     <p className='text-2xl sm:text-3xl font-bold text-black bg-gradient-to-r from-violet-500 to-purple-500 bg-clip-text text-transparent'>

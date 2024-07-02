@@ -34,7 +34,10 @@ message:[ {
   type :  mongoose.Schema.Types.ObjectId,
   ref : 'message'
 }],
-dp : String,
+dp : {
+  type : String,
+  default : "nodp"
+},
 forgotpasswordtoken : String,
 forgorpasswordexpiry : Date,
 verifytoken : String,
