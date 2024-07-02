@@ -8,16 +8,15 @@ connect()
     try {
          const reqbody = await request.json()
           const { biodata} = reqbody
-        console.log(biodata)
-        console.log(reqbody)
+        
         const userid = await GetDataFromToken(request)
           //  console.log(biodata)
           //  console.log(userid)
         const user = await Users.findById(userid)
         user.bio = biodata
-        console.log(user)
+        
         await user.save()
-        console.log(user)
+       
       return  NextResponse.json({mesaage : "bio change"})
 
 

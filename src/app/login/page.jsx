@@ -1,61 +1,135 @@
+// 'use client'
+// import React from 'react'
+// import { useEffect } from 'react'
+// import { useRouter } from 'next/navigation'
+// import axios from 'axios'
+// import Link from 'next/link'
+// // import style from '@/Stylesheet/login.module.css'
+// function Loginpage() {
+//   const router = useRouter()
+//  const [user , setuser] = React.useState({
+//     username : "",
+//     password : ""
+//   }
+//   )
+//   const [ buttondisable , setbuttondosable] = React.useState(true)
+//   const [loding , setloding] = React.useState(false)
+//   const login = async ()=>{
+//     try {
+//       if(!buttondisable){
+//       setloding(true)
+      
+//      const response =  await axios.post("/api/users/login" , user)
+     
+//      router.push("/profile")
+//       }
+//     } catch (error) {
+//       console.log("not send")
+//     }
+  
+//   }
+//   useEffect(()=>{
+//     if(user.username.length > 0 && user.password.length > 0){
+//       setbuttondosable(false);
+//     }else{
+//       setbuttondosable(true)
+//     }
+//   },[user])
+//   return (
+//   <dir className='h-screen w-screen flex items-center justify-center bg-gradient-to-r from-slate-900 to-slate-700'>
+       
+//    <div className='h-3/4 w-1/3 bg-gradient-to-r from-slate-900 to-slate-700 flex justify-center items-center rounded-3xl flex-col gap-4'>
+//    <div className='w-2/3 h-1/6'> <h1 className='text-5xl  font-bold'>{loding ?"processing " : "Login page"} </h1> </div>
+//    <div className='w-2/3'> <label className='text-1xl' htmlFor="username">Ener Username</label> </div>
+//     <input placeholder='Enter your user name' type="text" 
+//     value={user.username}
+//     className='text-white bg-gradient-to-r from-slate-900 to-slate-700 text-lg pl-3 pt-2 pb-2 rounded-full w-2/3 '
+//     onChange={(e)=>setuser({...user, username : e.target.value})}/>
+//     <div className='w-2/3'><label className='text-1xl' htmlFor="password">Password</label> </div>
+//     <input placeholder='Entre your password' type="password" 
+//     className='text-white bg-gradient-to-r from-slate-900 to-slate-700 text-lg pl-3 pt-2 pb-2 rounded-full w-2/3 '
+//     value={user.password}
+//     onChange={(e)=>setuser({...user , password : e.target.value})}/>
+//     <button onClick={login}  className='bg-gradient-to-r from-fuchsia-600 to-purple-600  h-10 w-20 text-white font-medium flex items-center justify-center pr-2 rounded-full'>Login</button>
+//     <Link href="/signup"className=' h-10 w-60 text-white font-medium flex items-center justify-center   pr-2 rounded-full'>Register your account</Link>
+//     </div>
+//     </dir>
+    
+   
+//   )
+// }
+
+// export default Loginpage
+
 'use client'
-import React from 'react'
-import { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import axios from 'axios'
 import Link from 'next/link'
-// import style from '@/Stylesheet/login.module.css'
+
 function Loginpage() {
   const router = useRouter()
- const [user , setuser] = React.useState({
-    username : "",
-    password : ""
-  }
-  )
-  const [ buttondisable , setbuttondosable] = React.useState(true)
-  const [loding , setloding] = React.useState(false)
-  const login = async ()=>{
+  const [user, setUser] = useState({
+    username: "",
+    password: ""
+  })
+  const [buttonDisable, setButtonDisable] = useState(true)
+  const [loading, setLoading] = useState(false)
+
+  const login = async () => {
     try {
-      if(!buttondisable){
-      setloding(true)
-      
-     const response =  await axios.post("/api/users/login" , user)
-     
-     router.push("/profile")
+      if (!buttonDisable) {
+        setLoading(true)
+        await axios.post("/api/users/login", user)
+        router.push("/profile")
       }
     } catch (error) {
-      console.log("not send")
+      console.log("Login failed")
     }
-  
   }
-  useEffect(()=>{
-    if(user.username.length > 0 && user.password.length > 0){
-      setbuttondosable(false);
-    }else{
-      setbuttondosable(true)
-    }
-  },[user])
+
+  useEffect(() => {
+    setButtonDisable(!(user.username.length > 0 && user.password.length > 0))
+  }, [user])
+
   return (
-  <dir className='h-screen w-screen flex items-center justify-center bg-gradient-to-r from-slate-900 to-slate-700'>
-       
-   <div className='h-3/4 w-1/3 bg-gradient-to-r from-slate-900 to-slate-700 flex justify-center items-center rounded-3xl flex-col gap-4'>
-   <div className='w-2/3 h-1/6'> <h1 className='text-5xl  font-bold'>{loding ?"processing " : "Login page"} </h1> </div>
-   <div className='w-2/3'> <label className='text-1xl' htmlFor="username">Ener Username</label> </div>
-    <input placeholder='Enter your user name' type="text" 
-    value={user.username}
-    className='text-white bg-gradient-to-r from-slate-900 to-slate-700 text-lg pl-3 pt-2 pb-2 rounded-full w-2/3 '
-    onChange={(e)=>setuser({...user, username : e.target.value})}/>
-    <div className='w-2/3'><label className='text-1xl' htmlFor="password">Password</label> </div>
-    <input placeholder='Entre your password' type="password" 
-    className='text-white bg-gradient-to-r from-slate-900 to-slate-700 text-lg pl-3 pt-2 pb-2 rounded-full w-2/3 '
-    value={user.password}
-    onChange={(e)=>setuser({...user , password : e.target.value})}/>
-    <button onClick={login}  className='bg-gradient-to-r from-fuchsia-600 to-purple-600  h-10 w-20 text-white font-medium flex items-center justify-center pr-2 rounded-full'>Login</button>
-    <Link href="/signup"className=' h-10 w-60 text-white font-medium flex items-center justify-center   pr-2 rounded-full'>Register your account</Link>
+    <div className='min-h-screen w-screen flex items-center justify-center bg-gradient-to-r from-slate-900 to-slate-700 p-7'>
+      <div className='h-3/4 w-full sm:w-3/4 md:w-1/2 lg:w-1/3 bg-gradient-to-r from-slate-900 to-slate-700 flex flex-col justify-center items-center rounded-3xl gap-4 p-6'>
+        <h1 className='text-3xl sm:text-5xl font-bold text-center'>
+          {loading ? "Processing..." : "Login Page"}
+        </h1>
+        <div className='w-full'>
+          <label className='text-lg' htmlFor="username">Enter Username</label>
+        </div>
+        <input 
+          placeholder='Enter your username' 
+          type="text" 
+          value={user.username}
+          className='text-white bg-gradient-to-r from-slate-800 to-slate-700 text-lg p-2 rounded-full w-full'
+          onChange={(e) => setUser({ ...user, username: e.target.value })}
+        />
+        <div className='w-full'>
+          <label className='text-lg' htmlFor="password">Password</label>
+        </div>
+        <input 
+          placeholder='Enter your password' 
+          type="password" 
+          className='text-white bg-gradient-to-r from-slate-800 to-slate-700 text-lg p-2 rounded-full w-full'
+          value={user.password}
+          onChange={(e) => setUser({ ...user, password: e.target.value })}
+        />
+        <button 
+          onClick={login} 
+          className={`bg-gradient-to-r from-fuchsia-600 to-purple-600 h-10 w-24 text-white font-medium flex items-center justify-center rounded-full ${buttonDisable ? 'opacity-50 cursor-not-allowed' : 'opacity-100'}`}
+          disabled={buttonDisable}
+        >
+          Login
+        </button>
+        <Link href="/signup" className='h-10 w-60 text-white font-medium flex items-center justify-center '>
+          Register your account
+        </Link>
+      </div>
     </div>
-    </dir>
-    
-   
   )
 }
 

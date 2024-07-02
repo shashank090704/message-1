@@ -12,8 +12,7 @@ export async function POST(request){
 try {
     const reqBody = await request.json()
     const { username , email, password} = reqBody
-    console.log(reqBody);
-
+   
    const user =  await Users.findOne({email})
    if(user){
     return NextResponse.json({error : 'user alredy exisy'}, {status : 400})
@@ -29,7 +28,7 @@ try {
 
      const saveduser = await newUser.save()
 
-      console.log(saveduser)
+      
     
     //   SendEmail({email : saveduser.email, emailType :"VERIFY", userId : saveduser._id})
      return NextResponse.json({

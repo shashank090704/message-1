@@ -12,7 +12,7 @@ export async function POST(request){
         const userid = await GetDataFromToken(request)
         const user = await Users.findById(userid)
         const message = await user.populate("message")
-        console.log(message)
+        
         return NextResponse.json(message)
     } catch (error) {
         console.log(error)
