@@ -171,6 +171,8 @@ function ProfilePage() {
     const [loginout, setloginout] = useState(false);
     const [image, setimage] = useState("");
 
+   alert("loda");
+
     const getDetails = async () => {
         try {
             const response = await axios.get("/api/users/profile");
