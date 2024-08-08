@@ -172,7 +172,9 @@ function ProfilePage() {
     const [image, setimage] = useState("");
 
    alert("loda");
-
+useEffect(()=>{
+   alert("hi")
+},[])
     const getDetails = async () => {
         try {
             const response = await axios.get("/api/users/profile");
