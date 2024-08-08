@@ -170,11 +170,6 @@ function ProfilePage() {
     const [biodata, setbiodata] = useState("");
     const [loginout, setloginout] = useState(false);
     const [image, setimage] = useState("");
-
-   alert("loda");
-useEffect(()=>{
-   alert("hi")
-},[])
     const getDetails = async () => {
         try {
             const response = await axios.get("/api/users/profile");
@@ -277,7 +272,7 @@ useEffect(()=>{
                     ) : (
                         <>
                             <h1 className='text-xl font-bold text-black bg-gradient-to-r from-violet-500 to-purple-500 bg-clip-text text-transparent'>
-                                About me: {data.bio}{biodata}hi3
+                                About me: {data.bio}
                             </h1>
                             <button className='text-lg font-medium bg-gradient-to-r from-fuchsia-500 to-pink-500 py-1 px-4 rounded-full transition duration-500 hover:shadow-[-3px_6px_309px_43px_#805ad5] mt-2' onClick={biofunction}>
                                 Set bio
