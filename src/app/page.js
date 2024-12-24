@@ -1083,6 +1083,7 @@ export default function Home() {
             </h3>
             <p className="text-gray-200 mt-4 group-hover:text-gray-100 transition-colors">
               Create and join communities around your interests and passions.
+              
             </p>
           </motion.div>
         </motion.div>
