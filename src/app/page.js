@@ -66,22 +66,20 @@ export default function Home() {
     <div className="min-h-screen w-screen bg-black text-white flex flex-col">
       {/* Header */}
       <header className="h-20 flex justify-between items-center px-6">
-        <div className="flex items-center gap-2">
-          <div className="text-yellow-400 font-bold text-xl flex items-center">
-            <span className="material-icons">star</span>
-            Connect
-          </div>
+        <div className="text-yellow-400 font-bold text-xl flex items-center">
+          <span className="material-icons">star</span>
+          Connect
         </div>
         <div className="flex gap-4">
           <Link
             href="/login"
-            className="h-10 flex items-center justify-center bg-transparent border border-yellow-400 text-yellow-400 w-20 rounded-full text-lg font-bold hover:bg-yellow-400 hover:text-black transition duration-300"
+            className="h-10 flex items-center justify-center border border-transparent bg-gradient-to-r from-yellow-400 to-yellow-600 text-black w-20 rounded-full text-lg font-bold hover:opacity-90 transition duration-300"
           >
             Login
           </Link>
           <Link
             href="/signup"
-            className="h-10 flex items-center justify-center bg-yellow-400 text-black w-20 rounded-full text-lg font-bold hover:bg-yellow-500 transition duration-300"
+            className="h-10 flex items-center justify-center bg-gradient-to-r from-yellow-400 to-yellow-600 text-black w-20 rounded-full text-lg font-bold hover:opacity-90 transition duration-300"
           >
             Sign Up
           </Link>
@@ -90,7 +88,7 @@ export default function Home() {
 
       {/* Main Section */}
       <main className="flex flex-grow flex-col items-center justify-center text-center">
-        <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold bg-gradient-to-r from-yellow-400 to-yellow-500 bg-clip-text text-transparent">
+        <h1 className="text-5xl sm:text-6xl md:text-8xl font-extrabold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
           Connect With The World
         </h1>
         <p className="text-gray-400 text-lg mt-4">
@@ -99,29 +97,35 @@ export default function Home() {
 
         {/* Cards Section */}
         <div className="flex flex-wrap justify-center gap-8 mt-12">
-          <div className="bg-gradient-to-b from-gray-800 to-black p-6 rounded-lg shadow-md max-w-xs">
-            <div className="text-yellow-400 text-4xl mb-4">
+          <div className="bg-gradient-to-b from-black via-gray-800 to-black p-6 rounded-lg shadow-md max-w-xs">
+            <div className="text-4xl mb-4 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
               <span className="material-icons">groups</span>
             </div>
-            <h2 className="text-xl font-bold text-yellow-400">Connect with People</h2>
+            <h2 className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              Connect with People
+            </h2>
             <p className="text-gray-400 mt-2">
               Find and connect with like-minded individuals from around the globe.
             </p>
           </div>
-          <div className="bg-gradient-to-b from-gray-800 to-black p-6 rounded-lg shadow-md max-w-xs">
-            <div className="text-yellow-400 text-4xl mb-4">
+          <div className="bg-gradient-to-b from-black via-gray-800 to-black p-6 rounded-lg shadow-md max-w-xs">
+            <div className="text-4xl mb-4 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
               <span className="material-icons">chat</span>
             </div>
-            <h2 className="text-xl font-bold text-yellow-400">Share Your Story</h2>
+            <h2 className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              Share Your Story
+            </h2>
             <p className="text-gray-400 mt-2">
               Express yourself and share your experiences with the community.
             </p>
           </div>
-          <div className="bg-gradient-to-b from-gray-800 to-black p-6 rounded-lg shadow-md max-w-xs">
-            <div className="text-yellow-400 text-4xl mb-4">
+          <div className="bg-gradient-to-b from-black via-gray-800 to-black p-6 rounded-lg shadow-md max-w-xs">
+            <div className="text-4xl mb-4 bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
               <span className="material-icons">share</span>
             </div>
-            <h2 className="text-xl font-bold text-yellow-400">Build Communities</h2>
+            <h2 className="text-xl font-bold bg-gradient-to-r from-yellow-400 to-yellow-600 bg-clip-text text-transparent">
+              Build Communities
+            </h2>
             <p className="text-gray-400 mt-2">
               Create and join communities around your interests and passions.
             </p>
@@ -132,7 +136,7 @@ export default function Home() {
         <div className="mt-10">
           <Link
             href="/get-started"
-            className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 text-black rounded-full text-lg font-bold hover:from-yellow-500 hover:to-yellow-600 transition duration-300"
+            className="px-8 py-4 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black rounded-full text-lg font-bold hover:opacity-90 transition duration-300"
           >
             Get Started Now
           </Link>
